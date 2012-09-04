@@ -4,7 +4,7 @@
     <td width="345">
       <% if @order.payment_method.class.name == 'Spree::CashOnDelivery::PaymentMethod' %>
       <div class="cod">
-        <%= "COD - #{number_to_currency(@order.total)}" %>
+        <%= "COD - #{money(@order.total)}" %>
       </div>
       <% end %>
     <div align="right">

@@ -2,7 +2,7 @@
 
   <tr>
     <td class="cel1 bold"><strong><%= t(:order_total) %>:</strong></td>
-    <td class="cel2 cell" align="right"><strong><span id='summary-order-total'><%= number_to_currency @order.total %></span></strong></td>
+    <td class="cel2 cell" align="right"><strong><span id='summary-order-total'><%= money @order.total %></span></strong></td>
   </tr>
   <% if @order.price_adjustment_totals.present? %>
   <tr>
@@ -13,7 +13,7 @@
   <% next unless @order.price_adjustment_totals[key] %>
   <tr class="total">
     <td class="cel1 bold"><%= key %>:</td>
-    <td class="cel2 cell" align="right"><%= number_to_currency @order.price_adjustment_totals[key] %></td>
+    <td class="cel2 cell" align="right"><%= money @order.price_adjustment_totals[key] %></td>
   </tr>
   <% end %>
   <% end %>
