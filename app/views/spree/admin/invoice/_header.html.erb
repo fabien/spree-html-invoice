@@ -1,7 +1,7 @@
-<table>
+<table class="header">
   <tr>
-    <td width="345"><%= image_tag Spree::HtmlInvoice::Config[:html_invoice_logo_path] || asset_path(Spree::Config[:logo]), :id => "logo" %></td>
-    <td width="345">
+    <td width="50%"><%= image_tag Spree::HtmlInvoice::Config[:html_invoice_logo_path] || asset_path(Spree::Config[:logo]), :id => "logo" %></td>
+    <td width="50%">
       <% if @order.payment_method.class.name == 'Spree::CashOnDelivery::PaymentMethod' %>
       <div class="cod">
         <%= "COD - #{money(@order.total)}" %>
@@ -10,7 +10,8 @@
     <div align="right">
       <p class="title"><%= I18n.t("#{params[:template]}.header") %></p>
       <p class="bold"><%= I18n.t(:order_number).to_s + " " + @order.number  %></p>
-      <p class="bold"> <%= I18n.l(@order.completed_at.to_date) if @order.completed_at %></p>
-    </div></td>
+      <p class="bold"> <%= I18n.l(@order.completed_at.to_date, :locale => @order.locale || I18n.default_locale) if @order.completed_at %></p>
+    </div>
+    </td>
   </tr>
 </table>
